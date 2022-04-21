@@ -207,7 +207,7 @@ namespace ranges
     template<typename T>
     CPP_concept view_ =
         range<T> &&
-        semiregular<T> &&
+        movable<T> &&
         enable_view<T>;
 
     template<typename T>
