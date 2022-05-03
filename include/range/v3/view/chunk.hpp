@@ -135,11 +135,11 @@ namespace ranges
               , end_(that.end_)
             {}
             constexpr auto read(iterator_t<CRng> const & it) const
-                -> decltype(views::take(make_subrange(it, end_), n_))
+                -> decltype(std::views::take(make_subrange(it, end_), n_))
             {
                 RANGES_EXPECT(it != end_);
                 RANGES_EXPECT(0 == offset());
-                return views::take(make_subrange(it, end_), n_);
+                return std::views::take(make_subrange(it, end_), n_);
             }
             constexpr void next(iterator_t<CRng> & it)
             {
