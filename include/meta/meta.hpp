@@ -3182,14 +3182,14 @@ namespace meta
             };
             template <typename... Yes, typename... No, typename A>
 #ifdef META_CONCEPT
-            requires integral<invoke<Fn, A>>
+            requires integral<meta::invoke<Fn, A>>
             struct impl<pair<list<Yes...>, list<No...>>, A>
 #else
             struct impl<pair<list<Yes...>, list<No...>>, A,
-                        void_<bool_<invoke<Fn, A>::type::value>>>
+                        void_<bool_<meta::invoke<Fn, A>::type::value>>>
 #endif
             {
-                using type = if_<invoke<Fn, A>, pair<list<Yes..., A>, list<No...>>,
+                using type = if_<meta::invoke<Fn, A>, pair<list<Yes..., A>, list<No...>>,
                                     pair<list<Yes...>, list<No..., A>>>;
             };
 
